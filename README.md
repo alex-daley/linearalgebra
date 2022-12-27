@@ -1,0 +1,1 @@
+Following through [3Blue1Brown](https://www.youtube.com/@3blue1brown)'s *"Essence of linear algebra"* [YouTube videos](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab) and converting the concepts into Java code (*for my own learning*).
