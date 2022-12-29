@@ -1,23 +1,21 @@
 package com.maths.linearalgebra;
 
-/**
- * A 2D transformation matrix
- *
- * @param a The x component of the right basis vector (i-hat)
- * @param c The y component of the right basis vector (i-hat)
- * @param b The x component of the up basis vector (j-hat)
- * @param d The y component of the up basis vector (j-hat)
- */
 public record Matrix2x2(double a, double b, double c, double d) {
-    /**
-     *
-     * @param right The right basis vector
-     * @param up The up basis vector
-     */
-    public Matrix2x2(Vector2 right, Vector2 up) {
-        this(
-            right.x(), up.x(),
-            right.y(), up.y()
+
+    public Matrix2x2 transform(Matrix2x2 transformation) {
+        Matrix2x2 m2 = this;
+
+        @SuppressWarnings("UnnecessaryLocalVariable")
+        Matrix2x2 m1 = transformation;
+
+        double a = (m1.a * m2.a) + (m1.c * m2.b);
+        double c = (m1.a * m2.c) + (m1.c * m2.d);
+        double b = (m1.b * m2.a) + (m1.d * m2.b);
+        double d = (m1.b * m2.c) + (m1.d * m2.d);
+
+        return new Matrix2x2(
+            a, b,
+            c, d
         );
     }
 }
